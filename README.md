@@ -4,4 +4,4 @@ The [second project](https://www.theodinproject.com/courses/web-development-101/
 
 Written in JavaScript.
 
-Begin game by typing game() into the browser's JavaScript console.
+[View on Github Pages](https://victinix888.github.io/rock-paper-scissors/). Begin game by typing game() into the browser's JavaScript console.
