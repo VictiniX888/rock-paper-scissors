@@ -1,103 +1,26 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
     <body>
-        <script>
-            function computerPlay() {
-                switch (Math.floor(Math.random() * 3)) {
-                    case 0: return "Rock";
-                    case 1: return "Paper";
-                    case 2: return "Scissors";
-                }
-            }
+        <h1>Rock, Paper, Scissors!</h1>
 
-            function playRound(playerSelection, computerSelection) {
-                let standardizedPlayerSelection = capitalizeFirstChar(playerSelection);
-                if (standardizedPlayerSelection === computerSelection) {
-                    return "Draw";
-                } else {
-                    let isPlayerWin;
+        <div id="buttons">
+            <button data-move="Rock">Rock</button>
+            <button data-move="Paper">Paper</button>
+            <button data-move="Scissors">Scissors</button>
+        </div>
 
-                    switch (standardizedPlayerSelection) {
-                        case "Rock": {
-                            if (computerSelection === "Scissors") isPlayerWin = true;
-                            else isPlayerWin = false;
-                            break;
-                        }
-                        case "Paper": {
-                            if (computerSelection === "Rock") isPlayerWin = true;
-                            else isPlayerWin = false;
-                            break;
-                        }
-                        case "Scissors": {
-                            if (computerSelection === "Paper") isPlayerWin = true;
-                            else isPlayerWin = false;
-                            break;
-                        }
-                        default: return; break;
-                    }
+        <div id="move-selected"></div>
+        <div id="round-result"></div>
+        <div id="score"></div>
+        <div id="overall-result"></div>
+        <div id="new-game"></div>
 
-                    if (isPlayerWin) {
-                        return "Win";
-                    } else {
-                        return "Lose";
-                    }
-                }
-            }
-
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;
-
-                for (let i = 0; i < 5; i++) {
-                    let playerInput = prompt("Rock, Paper, Scissors!");
-                    let standardizedPlayerSelection = capitalizeFirstChar(playerInput);
-                    let computerSelection = computerPlay();
-                    let result = playRound(playerInput, computerSelection);
-
-                    switch (result) {
-                        case "Draw": {
-                            console.log("Draw!");
-                            break;
-                        }
-
-                        case "Win": {
-                            playerScore++;
-                            console.log(`You Win! ${standardizedPlayerSelection} beats ${computerSelection}`);
-                            break;
-                        }
-
-                        case "Lose": {
-                            computerScore++;
-                            console.log(`You Lose! ${computerSelection} beats ${standardizedPlayerSelection}`);
-                            break;
-                        }
-
-                        default: {
-                            console.log("Player input is not a valid move"); 
-                            i--; 
-                            break;
-                        }
-                    }
-                    
-                    console.log(`Player: ${playerScore}, Computer: ${computerScore}`);
-                }
-
-                if (playerScore === computerScore) {
-                    console.log("Draw!");
-                    return "Draw";
-                } else if (playerScore > computerScore) {
-                    console.log("You Win!");
-                    return "Win";
-                } else {
-                    console.log("You Lose!");
-                    return "Lose";
-                }
-            }
-
-            function capitalizeFirstChar(string) {
-                return string.slice(0, 1).toUpperCase() + string.slice(1).toLowerCase();
-            }
-        </script>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
